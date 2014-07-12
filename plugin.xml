@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    id="com.cranberrygame.phonegap.plugin.exitappiftwice"
+    version="1.0.0">
+	
+    <name>exitappiftwice</name>
+    <description>exitappiftwice</description>
+    <license>Apache 2.0</license>
+    <keywords>exitappiftwice</keywords>
+    <repo>https://github.com/cranberrygame/com.cranberrygame.phonegap.plugin.exitappiftwice</repo>
+ 	
+	<!-- window.exitappiftwice.xxx(); -->
+	<!-- exitappiftwice.xxx(); -->	
+    <js-module src="www/exitappiftwice.js" name="exitappiftwice">
+        <clobbers target="window.exitappiftwice" />
+    </js-module>
+	
+    <!-- android -->
+    <platform name="android">
+
+	    <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="ExitAppIfTwice" >
+                <param name="android-package" value="com.cranberrygame.phonegap.plugin.ExitAppIfTwice"/>
+            </feature>
+        </config-file>
+		
+        <source-file src="src/android/ExitAppIfTwice.java" target-dir="src/com/cranberrygame/phonegap/plugin" />		
+    </platform>
+	
+</plugin>
