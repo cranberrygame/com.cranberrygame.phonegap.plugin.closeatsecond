@@ -8,6 +8,8 @@ import org.json.JSONException;
 import org.apache.cordova.CordovaInterface;
 import org.apache.cordova.CordovaWebView;
 import android.app.Activity;
+import android.util.Log;
+//
 //back key exit method1
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -15,18 +17,10 @@ import android.content.DialogInterface;
 import android.widget.Toast;//
 
 public class ExitAppIfTwice extends CordovaPlugin {
-	private Activity activity;
 	//back key exit method2: back key twice
 	private long lastPressedTime;
 	private static final int PERIOD = 2000;
-  
-	@Override
-	public void initialize(CordovaInterface cordova, CordovaWebView webView) {
-		super.initialize(cordova, webView);
-		
-		activity=cordova.getActivity();
-	}
-	
+
 	@Override
 	public boolean execute(String action, JSONArray args,CallbackContext callbackContext) {
 		PluginResult result = null;
@@ -41,9 +35,14 @@ public class ExitAppIfTwice extends CordovaPlugin {
 			//args.getBoolean(1)
 
 			if (action.equals("exitAppIfTwice")) {
+				//Activity activity=cordova.getActivity();
+				//webView			
+				//String adUnit = args.getString(0);				
+				//Log.d("___PLUGIN_NAME___", adUnit);
+				
 /*	
 				//back key exit method1
-				new AlertDialog.Builder(activity)
+				new AlertDialog.Builder(cordova.getActivity())
 				.setTitle("Exit")
 				.setMessage("Do you want to exit?")
 				.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
@@ -63,7 +62,7 @@ public class ExitAppIfTwice extends CordovaPlugin {
 					android.os.Process.killProcess(android.os.Process.myPid());
 				} 
 				else {
-					Toast.makeText(activity.getApplicationContext(), "press again to exit.",
+					Toast.makeText(cordova.getActivity().getApplicationContext(), "press again to exit.",
 							Toast.LENGTH_SHORT).show();
 					//lastPressedTime = event.getEventTime();
 					lastPressedTime = System.currentTimeMillis();

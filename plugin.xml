@@ -27,5 +27,16 @@
 		
         <source-file src="src/android/ExitAppIfTwice.java" target-dir="src/com/cranberrygame/phonegap/plugin" />		
     </platform>
+
+    <!-- wp8 -->
+    <platform name="wp8">
+        <config-file target="config.xml" parent="/*">
+            <feature name="ExitAppIfTwice">
+                <param name="wp-package" value="ExitAppIfTwice"/>
+            </feature>
+        </config-file>
+
+        <source-file src="src/wp8/ExitAppIfTwice.cs" />
+    </platform>
 	
 </plugin>
