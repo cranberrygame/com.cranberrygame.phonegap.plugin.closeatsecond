@@ -4,10 +4,10 @@
     id="com.cranberrygame.phonegap.plugin.exitappiftwice"
     version="1.0.0">
 	
-    <name>exitappiftwice</name>
-    <description>exitappiftwice</description>
-    <license>Apache 2.0</license>
-    <keywords>exitappiftwice</keywords>
+    <name>ExitAppIfTwice</name>
+    <description>ExitAppIfTwice</description>
+    <license>MIT</license>
+    <keywords>phonegap, exitappiftwice</keywords>
     <repo>https://github.com/cranberrygame/com.cranberrygame.phonegap.plugin.exitappiftwice</repo>
  	
 	<!-- window.exitappiftwice.xxx(); -->
