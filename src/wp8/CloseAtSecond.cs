@@ -1,11 +1,8 @@
-﻿// Copyright (c) 2014 cranberrygame
-// Email: cranberrygame@yahoo.com
-// Phonegap plugin: http://www.github.com/cranberrygame
-// Construct2 phonegap plugin: https://www.scirra.com/forum/viewtopic.php?f=153&t=109586
-//                             https://dl.dropboxusercontent.com/u/186681453/index.html
-//                             https://www.scirra.com/users/cranberrygame
-// Facebook: https://www.facebook.com/profile.php?id=100006204729846
-// License: MIT (http://opensource.org/licenses/MIT)
+﻿//Copyright (c) 2014 Sang Ki Kwon (Cranberrygame)
+//Email: cranberrygame@yahoo.com
+//Homepage: http://www.github.com/cranberrygame
+//License: MIT (http://opensource.org/licenses/MIT)
+using System;
 using System.Windows;
 using System.Runtime.Serialization;
 using WPCordovaClassLib.Cordova;
@@ -22,7 +19,7 @@ using System; //Environment
 
 namespace Cordova.Extension.Commands
 {
-    public class ExitAppIfTwice : BaseCommand
+    public class CloseAtSecond : BaseCommand
     {
 		//back key exit method2: back key twice
 		private long lastPressedTime;
@@ -30,7 +27,7 @@ namespace Cordova.Extension.Commands
 
         Popup popup;
         
-        public void exitAppIfTwice(string args)
+        public void closeAtSecond(string args)
         {
             //String adUnit = JsonHelper.Deserialize<string[]>(args)[0];
             //Debug.WriteLine("adUnit: " + adUnit);
@@ -38,6 +35,12 @@ namespace Cordova.Extension.Commands
 			//back key exit method2: back key twice
             if (Environment.TickCount - lastPressedTime < PERIOD)
             {
+				PluginResult pr = new PluginResult(PluginResult.Status.OK, "onCloseAtSecond");
+				//pr.KeepCallback = true;
+				DispatchCommandResult(pr);
+				//PluginResult pr = new PluginResult(PluginResult.Status.ERROR);
+				//pr.KeepCallback = true;
+				//DispatchCommandResult(pr);				
 				
 				Application.Current.Terminate();
 			} 
@@ -45,13 +48,10 @@ namespace Cordova.Extension.Commands
 				showToast("press again to exit.");
                 lastPressedTime = Environment.TickCount;
 			}
-
-			DispatchCommandResult(new PluginResult(PluginResult.Status.OK, "ok"));			
         }
 
 		private void showToast(string message)
         {
-			//DispatchCommandResult(new PluginResult(PluginResult.Status.OK));
             Deployment.Current.Dispatcher.BeginInvoke(() =>
             {
                 PhoneApplicationFrame frame = Application.Current.RootVisual as PhoneApplicationFrame;
@@ -102,14 +102,15 @@ namespace Cordova.Extension.Commands
 
                             hideToast(PERIOD);							
                         }
-						
-						DispatchCommandResult(new PluginResult(PluginResult.Status.OK));
-                    }
-                    else
-                    {
-                        DispatchCommandResult(new PluginResult(PluginResult.Status.INSTANTIATION_EXCEPTION));
                     }
                 }
+				
+				PluginResult pr = new PluginResult(PluginResult.Status.OK);
+				//pr.KeepCallback = true;
+				DispatchCommandResult(pr);
+				//PluginResult pr = new PluginResult(PluginResult.Status.ERROR);
+				//pr.KeepCallback = true;
+				//DispatchCommandResult(pr);				
             });
         }
 

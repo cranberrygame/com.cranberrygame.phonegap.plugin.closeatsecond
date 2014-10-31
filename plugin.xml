@@ -1,42 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    id="com.cranberrygame.phonegap.plugin.exitappiftwice"
+    id="com.cranberrygame.phonegap.plugin.closeatsecond"
     version="1.0.0">
 	
-    <name>ExitAppIfTwice</name>
-    <description>ExitAppIfTwice</description>
+    <name>CloseAtSecond</name>
+    <description>CloseAtSecond</description>
     <license>MIT</license>
-    <keywords>phonegap, exitappiftwice</keywords>
-    <repo>https://github.com/cranberrygame/com.cranberrygame.phonegap.plugin.exitappiftwice</repo>
+    <keywords>phonegap, closeatsecond</keywords>
+    <repo>https://github.com/cranberrygame/com.cranberrygame.phonegap.plugin.closeatsecond</repo>
  	
-	<!-- window.exitappiftwice.xxx(); -->
-	<!-- exitappiftwice.xxx(); -->	
-    <js-module src="www/exitappiftwice.js" name="exitappiftwice">
-        <clobbers target="window.exitappiftwice" />
+    <js-module src="www/closeatsecond.js">
+        <clobbers target="window.closeatsecond" />
     </js-module>
 	
     <!-- android -->
     <platform name="android">
 
 	    <config-file target="res/xml/config.xml" parent="/*">
-            <feature name="ExitAppIfTwice" >
-                <param name="android-package" value="com.cranberrygame.phonegap.plugin.ExitAppIfTwice"/>
+            <feature name="CloseAtSecond" >
+                <param name="android-package" value="com.cranberrygame.phonegap.plugin.CloseAtSecond"/>
             </feature>
         </config-file>
 		
-        <source-file src="src/android/ExitAppIfTwice.java" target-dir="src/com/cranberrygame/phonegap/plugin" />		
+        <source-file src="src/android/CloseAtSecond.java" target-dir="src/com/cranberrygame/phonegap/plugin" />		
     </platform>
 
     <!-- wp8 -->
     <platform name="wp8">
         <config-file target="config.xml" parent="/*">
-            <feature name="ExitAppIfTwice">
-                <param name="wp-package" value="ExitAppIfTwice"/>
+            <feature name="CloseAtSecond">
+                <param name="wp-package" value="CloseAtSecond"/>
             </feature>
         </config-file>
 
-        <source-file src="src/wp8/ExitAppIfTwice.cs" />
+        <source-file src="src/wp8/CloseAtSecond.cs" />
     </platform>
 	
 </plugin>

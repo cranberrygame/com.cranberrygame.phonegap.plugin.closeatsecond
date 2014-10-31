@@ -1,2 +1,2 @@
 
-# com.cranberrygame.phonegap.plugin.exitappiftwice
+# com.cranberrygame.phonegap.plugin.closeatsecond
