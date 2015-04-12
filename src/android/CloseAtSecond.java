@@ -82,7 +82,22 @@ public class CloseAtSecond extends CordovaPlugin {
 			
 			return true;
 		}
-		
+		else if (action.equals("closeRightNow")) {
+			//Activity activity=cordova.getActivity();
+			//webView			
+			//String adUnit = args.getString(0);				
+			//Log.d("___PLUGIN_NAME___", adUnit);
+			
+			PluginResult pr = new PluginResult(PluginResult.Status.OK, "onCloseRightNow");
+			//pr.setKeepCallback(true);
+			callbackContext.sendPluginResult(pr);
+			//PluginResult pr = new PluginResult(PluginResult.Status.ERROR);
+			//pr.setKeepCallback(true);
+			//callbackContext.sendPluginResult(pr);
+				
+			android.os.Process.killProcess(android.os.Process.myPid());
+		}
+			
 		return false; // Returning false results in a "MethodNotFound" error.				
 	}
 }

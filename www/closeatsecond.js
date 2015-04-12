@@ -1,12 +1,13 @@
 
 module.exports = {
    
-    closeAtSecond : function () {		
+    closeAtSecond : function () {
+		var self = this;
 		Cordova.exec(
 			function (result) {
 				if (result == "onCloseAtSecond") {
-					if (self.onClose)
-						self.onClose();
+					if (self.onCloseAtSecond)
+						self.onCloseAtSecond();
 				}
 			},
             function (error) {
@@ -16,5 +17,22 @@ module.exports = {
 			[]
 		);//success,fail,class,method,params
     },
-	onCloseAtSecond: null
+    closeRightNow : function () {
+		var self = this;	
+		Cordova.exec(
+			function (result) {
+				if (result == "onCloseRightNow") {
+					if (self.onCloseRightNow)
+						self.onCloseRightNow();
+				}
+			},
+            function (error) {
+			},
+			"CloseAtSecond",
+			"closeRightNow",
+			[]
+		);//success,fail,class,method,params
+    },	
+	onCloseAtSecond: null,
+	onCloseRightNow: null
 };
