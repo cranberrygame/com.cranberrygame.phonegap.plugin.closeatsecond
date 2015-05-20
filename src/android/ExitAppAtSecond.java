@@ -2,7 +2,7 @@
 //Email: cranberrygame@yahoo.com
 //Homepage: http://www.github.com/cranberrygame
 //License: MIT (http://opensource.org/licenses/MIT)
-package com.cranberrygame.cordova.plugin.closeatsecond;
+package com.cranberrygame.cordova.plugin.exitappatsecond;
 
 import org.apache.cordova.CordovaPlugin;
 import org.apache.cordova.PluginResult;
@@ -21,7 +21,7 @@ import android.content.DialogInterface;
 //back key exit method2: back key twice
 import android.widget.Toast;//
 
-public class CloseAtSecond extends CordovaPlugin {
+public class ExitAppAtSecond extends CordovaPlugin {
 	//back key exit method2: back key twice
 	private long lastPressedTime;
 	private static final int PERIOD = 2000;
@@ -38,7 +38,7 @@ public class CloseAtSecond extends CordovaPlugin {
 		//args.getBoolean(0)
 		//args.getBoolean(1)
 
-		if (action.equals("closeAtSecond")) {
+		if (action.equals("exitAppAtSecond")) {
 			//Activity activity=cordova.getActivity();
 			//webView			
 			//String adUnit = args.getString(0);				
@@ -64,16 +64,21 @@ public class CloseAtSecond extends CordovaPlugin {
 			//if (event.getDownTime() - lastPressedTime < PERIOD) {
 			if (System.currentTimeMillis() - lastPressedTime < PERIOD) {
 			
-				PluginResult pr = new PluginResult(PluginResult.Status.OK, "onCloseAtSecond");
+				PluginResult pr = new PluginResult(PluginResult.Status.OK, "onExitAppAtSecond");
 				//pr.setKeepCallback(true);
 				callbackContext.sendPluginResult(pr);
 				//PluginResult pr = new PluginResult(PluginResult.Status.ERROR);
 				//pr.setKeepCallback(true);
 				//callbackContext.sendPluginResult(pr);
 				
+				//following code kill process completely
 				//android.os.Process.killProcess(android.os.Process.myPid());
+
+				//following codes raise run time error:
 				//https://apache.googlesource.com/cordova-android/+/2.9.x/framework/src/org/apache/cordova/App.java
-				webView.postMessage("exit", null);
+				//webView.postMessage("exit", null);
+				//cordova.getActivity().finish();
+				//webView.loadUrl("javascript:navigator.app.exitApp();");
 			} 
 			else {
 				Toast.makeText(cordova.getActivity().getApplicationContext(), "press again to exit.",
@@ -83,22 +88,6 @@ public class CloseAtSecond extends CordovaPlugin {
 			}	
 			
 			return true;
-		}
-		else if (action.equals("closeRightNow")) {
-			//Activity activity=cordova.getActivity();
-			//webView			
-			//String adUnit = args.getString(0);				
-			//Log.d("___PLUGIN_NAME___", adUnit);
-			
-			PluginResult pr = new PluginResult(PluginResult.Status.OK, "onCloseRightNow");
-			//pr.setKeepCallback(true);
-			callbackContext.sendPluginResult(pr);
-			//PluginResult pr = new PluginResult(PluginResult.Status.ERROR);
-			//pr.setKeepCallback(true);
-			//callbackContext.sendPluginResult(pr);
-				
-			//android.os.Process.killProcess(android.os.Process.myPid());
-			webView.postMessage("exit", null);
 		}
 			
 		return false; // Returning false results in a "MethodNotFound" error.				

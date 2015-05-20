@@ -19,7 +19,7 @@ using System; //Environment
 
 namespace Cordova.Extension.Commands
 {
-    public class CloseAtSecond : BaseCommand
+    public class ExitAppAtSecond : BaseCommand
     {
 		//back key exit method2: back key twice
 		private long lastPressedTime;
@@ -27,7 +27,7 @@ namespace Cordova.Extension.Commands
 
         Popup popup;
         
-        public void closeAtSecond(string args)
+        public void exitAppAtSecond(string args)
         {
             //String adUnit = JsonHelper.Deserialize<string[]>(args)[0];
             //Debug.WriteLine("adUnit: " + adUnit);
@@ -35,14 +35,15 @@ namespace Cordova.Extension.Commands
 			//back key exit method2: back key twice
             if (Environment.TickCount - lastPressedTime < PERIOD)
             {
-				PluginResult pr = new PluginResult(PluginResult.Status.OK, "onCloseAtSecond");
+				PluginResult pr = new PluginResult(PluginResult.Status.OK, "onExitAppAtSecond");
 				//pr.KeepCallback = true;
 				DispatchCommandResult(pr);
 				//PluginResult pr = new PluginResult(PluginResult.Status.ERROR);
 				//pr.KeepCallback = true;
 				//DispatchCommandResult(pr);				
 				
-				Application.Current.Terminate();
+				//following code kill process completely
+				//Application.Current.Terminate();
 			} 
 			else {
 				showToast("press again to exit.");
