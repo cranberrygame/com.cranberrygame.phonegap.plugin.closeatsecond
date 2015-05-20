@@ -1,2 +1,2 @@
 
-# com.cranberrygame.phonegap.plugin.closeatsecond
+# com.cranberrygame.cordova.plugin.closeatsecond

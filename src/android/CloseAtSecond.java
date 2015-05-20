@@ -2,7 +2,7 @@
 //Email: cranberrygame@yahoo.com
 //Homepage: http://www.github.com/cranberrygame
 //License: MIT (http://opensource.org/licenses/MIT)
-package com.cranberrygame.phonegap.plugin;
+package com.cranberrygame.cordova.plugin.closeatsecond;
 
 import org.apache.cordova.CordovaPlugin;
 import org.apache.cordova.PluginResult;
@@ -71,7 +71,9 @@ public class CloseAtSecond extends CordovaPlugin {
 				//pr.setKeepCallback(true);
 				//callbackContext.sendPluginResult(pr);
 				
-				android.os.Process.killProcess(android.os.Process.myPid());
+				//android.os.Process.killProcess(android.os.Process.myPid());
+				//https://apache.googlesource.com/cordova-android/+/2.9.x/framework/src/org/apache/cordova/App.java
+				webView.postMessage("exit", null);
 			} 
 			else {
 				Toast.makeText(cordova.getActivity().getApplicationContext(), "press again to exit.",
@@ -95,7 +97,8 @@ public class CloseAtSecond extends CordovaPlugin {
 			//pr.setKeepCallback(true);
 			//callbackContext.sendPluginResult(pr);
 				
-			android.os.Process.killProcess(android.os.Process.myPid());
+			//android.os.Process.killProcess(android.os.Process.myPid());
+			webView.postMessage("exit", null);
 		}
 			
 		return false; // Returning false results in a "MethodNotFound" error.				
