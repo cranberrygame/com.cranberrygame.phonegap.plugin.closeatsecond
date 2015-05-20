@@ -5,10 +5,10 @@
     version="1.0.11">
 	
     <name>Cordova ExitAppAtSecond plugin</name>
-    <description>Cordova ExitAppAtSecond plugin</description>
+    <description>Exit app at second on android and wp8.</description>
     <author>Sang Ki Kwon (Cranberrygame)</author>		
     <license>MIT</license>
-    <keywords>cordova, plugin, exitappatsecond</keywords>
+    <keywords>cordova,plugin,exitappatsecond,extension</keywords>
     <repo>https://github.com/cranberrygame/cordova-plugin-exitappatsecond</repo>
     <issue>https://github.com/cranberrygame/cordova-plugin-exitappatsecond/issues</issue> 	
 	<engines>
