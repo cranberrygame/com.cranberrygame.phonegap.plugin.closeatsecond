@@ -59,7 +59,7 @@ window.exitappatsecond.exitAppAtSecond();
 
 # Test #
 
-[![](http://img.youtube.com/vi/ublL50r5PW4/0.jpg)](https://www.youtube.com/watch?v=ublL50r5PW4&feature=youtu.be "Youtube")
+[![](http://img.youtube.com/vi/bMdgsde56ZA/0.jpg)](https://www.youtube.com/watch?v=bMdgsde56ZA&feature=youtu.be "Youtube")
 
 You can also run following test apk.
 https://dl.dropboxusercontent.com/u/186681453/pluginsforcordova/exitappatsecond/apk.html
