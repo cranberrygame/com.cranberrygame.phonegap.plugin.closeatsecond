@@ -2,7 +2,7 @@
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
     xmlns:android="http://schemas.android.com/apk/res/android"
     id="cordova-plugin-exitappatsecond"
-    version="1.0.33">
+    version="1.0.34">
 	
     <name>Cordova ExitAppAtSecond plugin</name>
     <description>Exit app at second on android and wp8.</description>
@@ -15,7 +15,7 @@
 	    <engine name="cordova" version=">=3.0.0" />
 	</engines>	
 	
-    <js-module src="www/exitappatsecond.js">
+    <js-module src="www/exitappatsecond.js" name="exitappatsecond">
         <clobbers target="window.exitappatsecond" />
     </js-module>
 	
